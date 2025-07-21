@@ -98,6 +98,19 @@
             navigation.classList.toggle('active');
             menuToggle.classList.toggle('open');
         });
+
+        const intro = document.getElementById('intro');
+        const descricao = document.getElementById('descricao');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                intro.classList.add('sumir');
+                descricao.classList.add('ativo');
+            } else {
+                intro.classList.remove('sumir');
+                descricao.classList.remove('ativo');
+            }
+        });
     </script>
 </body>
 

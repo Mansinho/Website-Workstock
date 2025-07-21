@@ -2,17 +2,17 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/header.css">
-    <link rel="stylesheet" href="/src/main.css">
-    <link rel="stylesheet" href="/src/keyframes.css">
-    <link rel="stylesheet" href="/src/contato.css">
-    <link rel="stylesheet" href="/src/footer.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/Icon-logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/Icon-logo.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/src/header.css" />
+    <link rel="stylesheet" href="/src/main.css" />
+    <link rel="stylesheet" href="/src/keyframes.css" />
+    <link rel="stylesheet" href="/src/contato.css" />
+    <link rel="stylesheet" href="/src/footer.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/Icon-logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/Icon-logo.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
     <title>WorkStock</title>
 </head>
 
@@ -22,9 +22,16 @@
             <!-- Logo à esquerda -->
             <div class="logo-area">
                 <a href="/index.html">
-                    <img src="/img/Logo WorkStock PNG_2.png" alt="WorkStock Logo" class="logo-icon">
+                    <img src="/img/Logo WorkStock PNG_2.png" alt="WorkStock Logo" class="logo-icon" />
                 </a>
             </div>
+
+            <!-- Botão menu hambúrguer para mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
 
             <!-- Navegação central -->
             <nav class="navigation" aria-label="Navegação principal">
@@ -32,25 +39,39 @@
                 <a href="/projetos.html">Projetos</a>
             </nav>
 
-            <!-- Apenas ícone da conta à direita -->
+            <!-- Ícone e link da conta à direita -->
             <div class="conta-area">
                 <a href="/conta.html">
-                    <img src="/img/char-conta PNG.png" alt="Ícone da Conta" class="conta-icon">
+                    <img src="/img/char-conta PNG.png" alt="Ícone da Conta" class="conta-icon" />Minha conta
                 </a>
             </div>
         </div>
     </header>
 
-
     <main>
-        <section id="conteudo-principal">
-
+        <section id="intro">
+            <div class="intro-texto">
+                <h1>WorkStock</h1>
+                <h4>Controle inteligente<br> para sua obra</h4>
+            </div>
+            <div class="intro-imagem">
+                <img src="/img/char PNG.png" alt="Imagem ilustrativa da obra" />
+            </div>
         </section>
     </main>
 
-    <footer>
+    <footer></footer>
 
-    </footer>
+    <!-- Script para ativar o menu hambúrguer -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navigation = document.querySelector('.navigation');
+
+        menuToggle.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+            menuToggle.classList.toggle('open');
+        });
+    </script>
 </body>
 
 </html>

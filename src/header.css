@@ -8,73 +8,110 @@
 
 body {
   background-color: #F6F6F6;
+  color: #333;
 }
 
+/* Header */
 header {
   background-color: #264653;
   height: 72px;
-  overflow: hidden;
   display: flex;
   align-items: center;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 32px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 100%;
+  position: relative;
 }
 
-/* Logo com tamanho ideal para header */
+/* Logo alinhada à esquerda */
 .logo-area {
   display: flex;
   align-items: center;
 }
 
 .logo-icon {
-  height: 48px;
+  height: 42px;
   width: auto;
+  transition: transform 0.3s ease;
 }
 
-/* Navegação centralizada com espaçamento bonito */
+.logo-icon:hover {
+  transform: scale(1.05);
+  filter: brightness(110%);
+}
+
+/* Navegação central */
 .navigation {
+  flex: 1;
   display: flex;
+  justify-content: center;
+  gap: 60px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 18px;
+  color: #f0ead8;
   align-items: center;
-  gap: 80px;
+  transition: all 0.3s ease;
 }
 
 .navigation a {
-  color: white;
+  color: #f0ead8;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  font-size: 16px;
   position: relative;
+  padding-bottom: 6px;
+  transition: color 0.3s ease;
 }
 
 .navigation a::after {
   content: "";
   position: absolute;
-  bottom: -6px;
+  bottom: 0;
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: #E9C46A;
+  background-color: #F4A261;
   transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.navigation a:hover {
+  color: #F4A261;
 }
 
 .navigation a:hover::after {
   width: 100%;
 }
 
-/* Ícone da conta à direita */
+/* Conta alinhada à direita */
 .conta-area {
   display: flex;
   align-items: center;
+}
+
+.conta-area a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f0ead8;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.conta-area a:hover {
+  color: #F4A261;
 }
 
 .conta-icon {
@@ -82,27 +119,101 @@ header {
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  transition: transform 0.2s ease;
+  box-shadow: none;
+  transition: transform 0.3s ease;
 }
 
 .conta-icon:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: none;
+}
+
+/* Botão menu hambúrguer */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+.menu-toggle:focus {
+  outline: none;
+}
+
+.menu-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #f0ead8;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Menu hambúrguer animado */
+.menu-toggle.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-  .logo-icon {
-    height: 40px;
+  /* Mostrar botão hambúrguer */
+  .menu-toggle {
+    display: flex;
   }
 
+  /* Esconder navegação normal e transformar em menu dropdown */
   .navigation {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background-color: #264653;
+    flex-direction: column;
     gap: 24px;
+    padding: 24px 16px;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    pointer-events: none;
+    opacity: 0;
+    font-size: 20px;
   }
 
-  .navigation a {
-    font-size: 14px;
+  /* Mostrar menu quando ativo */
+  .navigation.active {
+    transform: translateY(0);
+    pointer-events: auto;
+    opacity: 1;
   }
 
+  /* Ajuste de container para alinhamento */
+  .container {
+    justify-content: space-between;
+  }
+
+  /* Ocultar conta no mobile para simplificar */
+  .conta-area {
+    display: none;
+  }
+
+  /* Reduzir tamanho logo */
+  .logo-icon {
+    height: 36px;
+  }
+
+  /* Reduzir tamanho ícone conta (se necessário em outras páginas) */
   .conta-icon {
     width: 36px;
     height: 36px;

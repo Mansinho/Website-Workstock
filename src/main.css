@@ -1,0 +1,45 @@
+#intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 80px;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.intro-texto {
+  flex: 1 1 50%;
+  max-width: 600px;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.intro-texto h1 {
+  color: #264653;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 72px;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.intro-texto h4 {
+  color: #6B6B6B;
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  margin-left: 8px;
+  margin-top: -10px;
+}
+
+.intro-imagem {
+  flex: 1 1 40%;
+  max-width: 480px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.intro-imagem img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}

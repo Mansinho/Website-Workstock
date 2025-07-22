@@ -97,14 +97,15 @@
     font-size: 18px;
     line-height: 1.6;
     max-width: 1000px;
+    margin-top: 15px;
     
 }
 
 #descricao .img1_descricao {
     display: flex;
+    position: relative;
     margin: 0 1150px;
     height: 200px;
     width: auto;
-    margin-bottom: 100px;
-    
+    margin-bottom: 150px;
 }

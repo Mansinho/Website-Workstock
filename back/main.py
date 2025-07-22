@@ -87,8 +87,11 @@ def gerenciar_estoque():
         opcao = input("Escolha uma opção: ")
         
         if opcao == '1':
+            ultimo_material += 1
             print("Cadastrando Material...")
-            
+            lista_material["numero_material"] = ultimo_material              
+            lista_material["material"] = input("Material:")
+            lista_material["quantidade"] = input("Quantidade:")         
             # Implementar lógica para cadastrar material
         elif opcao == '2':
             print("Controlando Entradas/Saídas...")

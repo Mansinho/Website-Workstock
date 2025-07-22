@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contato | WorkStock</title>
+    <link rel="stylesheet" href="/src/header.css" />
+    <link rel="stylesheet" href="/src/main.css" />
+    <link rel="stylesheet" href="/src/contato.css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <a href="/index.html">
+                    <img src="/img/Logo WorkStock PNG_2.png" alt="Logo WorkStock" class="logo-icon" />
+                </a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="navigation" aria-label="Navegação principal">
+                <a href="/dashboard.html">Dashboard</a>
+                <a href="/projetos.html">Projetos</a>
+                <a href="/contato.html">Contato</a>
+            </nav>
+
+            <div class="conta-area">
+                <a href="/conta.html">
+                    <img src="/img/char-conta PNG.png" alt="Ícone da Conta" class="conta-icon" />Minha conta
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1>Fale Conosco</h1>
+        <form action="#" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 20px; background-color: #264653; color: #f0ead8;">
+        &copy; 2025 WorkStock. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navigation = document.querySelector('.navigation');
+        menuToggle.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+            menuToggle.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

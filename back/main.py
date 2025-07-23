@@ -11,10 +11,6 @@ def apresentar_menu_principal():
     return opcao
 
 def gerenciar_ordens_de_servico(lista_de_os):
-    """
-    Responsável por tudo relacionado às Ordens de Serviço (OS).
-    Recebe a 'lista_de_os' como um "parâmetro" para que possa adicionar ou ler os dados dela.
-    """
     # Para saber o número da próxima OS, olhamos o número da última OS na lista.
     # Se a lista estiver vazia, começamos com 0.
     if lista_de_os:
@@ -35,8 +31,6 @@ def gerenciar_ordens_de_servico(lista_de_os):
         if opcao == '1':
             print("\n-> Criando nova OS...")
             
-            # Cada OS será um Dicionário. Dicionários são ótimos para organizar
-            # informações com "chave" e "valor" (ex: "nome": "João").
             nova_os = {
                 "numero_os": ultimo_numero + 1,
                 "descricao": input("Descrição do serviço: "),
@@ -72,14 +66,11 @@ def gerenciar_ordens_de_servico(lista_de_os):
             if not lista_de_os:
                 print("Nenhuma OS para gerar relatório.")
             else:
-                # Lógica simplificada para contar, ideal para iniciantes:
                 # 1. Criamos contadores zerados.
                 concluidas = 0
                 abertas = 0
                 
-                # 2. Usamos um laço 'for' para checar cada OS uma por uma.
                 for os in lista_de_os:
-                    # 3. Usamos um 'if' para ver o status e incrementar o contador certo.
                     if os['status'].lower() == 'concluída':
                         concluidas += 1
                     else:
@@ -91,7 +82,7 @@ def gerenciar_ordens_de_servico(lista_de_os):
         
         elif opcao == '4':
             print("Voltando ao menu principal...")
-            break # 'break' é o comando que quebra o laço 'while' e encerra o menu de OS.
+            break
         
         else:
             print("Opção inválida! Por favor, escolha um número do menu.")

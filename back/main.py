@@ -24,7 +24,8 @@ def gerenciar_ordens_de_servico(lista_de_os):
         print("1. Criar Nova OS")
         print("2. Listar Todas as OS")
         print("3. Ver Relatório Simples")
-        print("4. Voltar ao Menu Principal")
+        print("4. Concluir OS:")
+        print("5. Voltar ao Menu Principal")
         opcao = input("Sua escolha: ")
 
         # Condicional (if/elif/else): decide o que fazer com base na escolha do usuário.
@@ -79,8 +80,11 @@ def gerenciar_ordens_de_servico(lista_de_os):
                 print(f"Total de Ordens de Serviço: {len(lista_de_os)}")
                 print(f"Ordens Concluídas: {concluidas}")
                 print(f"Ordens Abertas/Em Andamento: {abertas}")
-        
         elif opcao == '4':
+            os['status'] = input('status os:')        
+            
+
+        elif opcao == '5':
             print("Voltando ao menu principal...")
             break
         

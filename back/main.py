@@ -1,15 +1,6 @@
-# Vamos importar um módulo do Python que nos ajuda a trabalhar com datas e horas.
-# Usaremos isso para registrar automaticamente quando uma Ordem de Serviço foi criada.
 from datetime import datetime
 
-# --- FUNÇÕES DE MENU ---
-# Estas funções apenas mostram as opções na tela e perguntam ao usuário o que ele quer fazer.
-
 def apresentar_menu_principal():
-    """
-    Esta função apenas imprime o menu principal e retorna a escolha do usuário.
-    É bom separar isso em uma função para manter o código organizado.
-    """
     print("\n========= MENU PRINCIPAL =========")
     print("1. Ordens de Serviço")
     print("2. Gerenciar Estoque")
@@ -18,9 +9,6 @@ def apresentar_menu_principal():
     print("==================================")
     opcao = input("Digite o número da sua escolha: ")
     return opcao
-
-# --- FUNÇÕES DE GERENCIAMENTO ---
-# Cada função abaixo é um "módulo" do nosso sistema.
 
 def gerenciar_ordens_de_servico(lista_de_os):
     """
@@ -109,10 +97,10 @@ def gerenciar_ordens_de_servico(lista_de_os):
             print("Opção inválida! Por favor, escolha um número do menu.")
 
 def gerenciar_estoque(lista_de_estoque):
-    """
-    Responsável pelo controle de materiais no estoque.
-    Recebe a lista de estoque para poder alterá-la.
-    """
+
+    # Responsável pelo controle de materiais no estoque.
+    # Recebe a lista de estoque para poder alterá-la.
+
     while True:
         print("\n--- Menu de Estoque ---")
         print("1. Cadastrar Novo Material")
@@ -160,9 +148,7 @@ def gerenciar_estoque(lista_de_estoque):
             print("Opção inválida!")
 
 def gerenciar_clientes(lista_de_clientes):
-    """
-    Responsável pelo cadastro dos clientes.
-    """
+    # Responsável pelo cadastro dos clientes.
     while True:
         print("\n--- Menu de Clientes ---")
         print("1. Cadastrar Novo Cliente")
@@ -203,18 +189,7 @@ def gerenciar_clientes(lista_de_clientes):
 # O "Cérebro" do nosso programa.
 
 def main():
-    """
-    Esta é a função principal que controla todo o programa.
-    
-    Pense nela como o "coração" ou "cérebro" do sistema. As listas de dados 
-    (lista_os, lista_estoque, etc.) são criadas AQUI e em nenhum outro lugar.
-    
-    POR QUÊ? 
-    Porque se elas fossem criadas dentro das outras funções, seus dados seriam
-    APAGADOS toda vez que você saísse e entrasse no menu. Ao mantê-las aqui,
-    garantimos que os dados fiquem salvos enquanto o programa estiver rodando.
-    """
-    
+     
     # Listas: Estas são as nossas "bases de dados". Elas vão guardar tudo.
     lista_os_principal = []
     lista_estoque_principal = []

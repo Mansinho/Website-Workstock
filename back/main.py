@@ -24,7 +24,7 @@ def gerenciar_ordens_de_servico(lista_de_os):
         print("1. Criar Nova ordemDeServico")
         print("2. Listar Todas as ordemDeServico")
         print("3. Ver Relatório Simples")
-        print("4. Concluir ordemDeServico:")
+        print("4. Gerenciar Status ordemDeServico:")
         print("5. Voltar ao Menu Principal")
         opcao = input("Sua escolha: ")
 
@@ -81,7 +81,29 @@ def gerenciar_ordens_de_servico(lista_de_os):
                 print(f"Ordens Concluídas: {concluidas}")
                 print(f"Ordens Abertas/Em Andamento: {abertas}")
         elif opcao == '4':
-            print("oi")
+            numero_ordem = int(input("Digite o número da ordem de serviço para alterar o status: "))
+            encontrou = False
+            for ordemDeServico in lista_de_os:
+                if ordemDeServico['numero_os'] == numero_ordem:
+                    encontrou = True
+                    print("\n-> Alterando status da ordem de serviço...")
+                    print("1 - Aberta")
+                    print("2 - Concluída")
+                    print("3 - Cancelada")
+                    # print("4 - Voltar")
+                    opcao_status = input("Digite o número da opção para alterar o status: ")
+                    if opcao_status == '1':
+                        ordemDeServico['status'] = 'Aberta'
+                    elif opcao_status == '2':
+                        ordemDeServico['status'] = 'Concluída'
+                    elif opcao_status == '3':
+                        ordemDeServico['status'] = 'Cancelada'
+                    else:
+                        print("Opcao invalida")
+            if encontrou == False:
+                    print("Ordem de serviço não encontrada.")
+
+            
         elif opcao == '5':
             print("Voltando ao menu principal...")
             break

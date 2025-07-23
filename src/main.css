@@ -48,6 +48,7 @@
     object-fit: contain;
 }
 
+
 .cta-button {
     margin-top: 30px;
     padding-left: 0;
@@ -77,12 +78,13 @@
     background-color: #264653;
     color: #fff;
     padding: 60px 80px;
+    font-family: 'Inter', sans-serif;
 }
 
 #descricao h2 {
     font-size: 32px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     font-weight: 400; 
 }
 
@@ -92,20 +94,114 @@
     font-size: 1.2em;
 }
 
-#descricao p {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 1000px;
-    margin-top: 15px;
-    
+.descricao-conteudo {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-#descricao .img1_descricao {
+.descricao-texto {
+    flex: 1 1 55%;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+    padding-right: 20px;
+}
+
+.descricao-texto p {
+    margin: 0;
+}
+
+.descricao-imagens {
+    flex: 1 2 30%;
     display: flex;
-    position: relative;
-    margin: 0 1150px;
-    height: 200px;
-    width: auto;
-    margin-bottom: 150px;
+    flex-direction: column;
+    gap: 30px;
+    width: 200px;
+    height: auto;
+    align-items: center;
+}
+
+.descricao-imagens img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 12px;
+}
+
+img .img1-descricao {
+    flex-direction: 1 ;
+    padding-left: 50px;
+}
+
+img .img2-descricao {
+    flex-direction: 2 ;
+    padding-left: 50px;
+}
+
+#intro.sumir {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all 0.6s ease;
+    pointer-events: none;
+}
+#descricao {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+#descricao.ativo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#beneficios {
+    background-color: #fff;
+    padding: 60px 80px;
+    text-align: center;
+    color: #264653;
+}
+
+#beneficios h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.beneficios-lista {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.beneficio-item {
+    max-width: 280px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.beneficio-item:hover {
+    transform: translateY(-5px);
+}
+
+.beneficio-item img {
+    width: 64px;
+    margin-bottom: 16px;
+}
+
+.beneficio-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #cc4523;
+}
+
+.beneficio-item p {
+    font-size: 16px;
+    line-height: 1.5;
 }

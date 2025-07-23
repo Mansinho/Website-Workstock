@@ -1,0 +1,85 @@
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projetos | WorkStock</title>
+<link rel="stylesheet" href="/src/header.css" />
+<link rel="stylesheet" href="/src/main.css" />
+<link rel="stylesheet" href="/src/projetos.css" />
+
+</head>
+<body>
+<header>
+<div class="container">
+    <div class="logo-area">
+        <a href="/index.html">
+            <img src="/img/Logo WorkStock PNG_2.png" alt="Logo WorkStock" class="logo-icon" />
+        </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Abrir menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <nav class="navigation" aria-label="Navegação principal">
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/projetos.html">Projetos</a>
+        <a href="/contato.html">Contato</a>
+    </nav>
+
+    <div class="conta-area">
+        <a href="/conta.html">
+            <img src="/img/char-conta PNG.png" alt="Ícone da Conta" class="conta-icon" />Minha conta
+        </a>
+    </div>
+</div>
+</header>
+
+<main>
+<h1>Projetos</h1>
+<div class="projetos-grid">
+    <!-- Projeto 1 -->
+    <div class="projeto-card">
+        <img src="/img/Reforma Residencial.jpg" alt="Projeto 1" class="projeto-imagem">
+        <div class="projeto-conteudo">
+            <div class="projeto-titulo">Reforma Residencial</div>
+            <div class="projeto-descricao">Controle completo de estoque e materiais em obra residencial de médio porte.</div>
+        </div>
+    </div>
+
+    <!-- Projeto 2 -->
+    <div class="projeto-card">
+        <img src="/img/Obra Comercial.png" alt="Projeto 2" class="projeto-imagem">
+        <div class="projeto-conteudo">
+            <div class="projeto-titulo">Obra Comercial</div>
+            <div class="projeto-descricao">Gerenciamento eficiente de suprimentos e entregas para obra de escritório.</div>
+        </div>
+    </div>
+
+    <!-- Projeto 3 -->
+    <div class="projeto-card">
+        <img src="/img/Construção Vertical.png" alt="Projeto 3" class="projeto-imagem">
+        <div class="projeto-conteudo">
+            <div class="projeto-titulo">Construção Vertical</div>
+            <div class="projeto-descricao">Projeto em andamento com integração direta ao painel de controle WorkStock.</div>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer>
+&copy; 2025 WorkStock. Todos os direitos reservados.
+</footer>
+
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('.navigation');
+menuToggle.addEventListener('click', () => {
+    navigation.classList.toggle('active');
+    menuToggle.classList.toggle('open');
+});
+</script>
+</body>
+</html>

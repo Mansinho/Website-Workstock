@@ -11,7 +11,7 @@ def apresentar_menu_principal():
     return opcao
 
 def gerenciar_ordens_de_servico(lista_de_os):
-    # Para saber o número da próxima ordemDeServico, olhamos o número da última ordemDeServico na lista.
+    # Para saber o número da próxima ordem de serviço, olhamos o número da última ordem de serviço na lista.
     # Se a lista estiver vazia, começamos com 0.
     if lista_de_os:
         ultimo_numero = lista_de_os[-1]['numero_os']
@@ -21,10 +21,10 @@ def gerenciar_ordens_de_servico(lista_de_os):
     # Laço de Repetição (while): mantém o usuário no menu de ordemDeServico até ele decidir sair.
     while True:
         print("\n--- Menu de Ordens de Serviço ---")
-        print("1. Criar Nova ordemDeServico")
-        print("2. Listar Todas as ordemDeServico")
+        print("1. Criar Nova Ordem de Serviço")
+        print("2. Listar Todas as Ordens de Serviço")
         print("3. Ver Relatório Simples")
-        print("4. Gerenciar Status ordemDeServico:")
+        print("4. Gerenciar Status da Ordem de Serviço")
         print("5. Voltar ao Menu Principal")
         opcao = input("Sua escolha: ")
 
@@ -55,12 +55,10 @@ def gerenciar_ordens_de_servico(lista_de_os):
             else:
                 # Laço de Repetição (for): passa por cada item (cada ordemDeServico) na lista.
                 for ordemDeServico in lista_de_os:
-                    print("-" * 20) # Uma linha para separar visualmente
-                    print(f"Número: {ordemDeServico['numero_os']}")
-                    print(f"Descrição: {ordemDeServico['descricao']}")
-                    print(f"Cliente: {ordemDeServico['cliente']}")
-                    print(f"Status: {ordemDeServico['status']}")
-                    print(f"Data de Criação: {ordemDeServico['data_criacao']}")
+                    print(f"{'ID':<5}{'descrição':<20}{'cliente':<15}{'status':<12}{'data de criação':<20}")
+                    print("-" * 70)
+                    print(f"{ordemDeServico['numero_os']:<5}{ordemDeServico['descricao']:<20}{ordemDeServico['cliente']:<15}{ordemDeServico['status']:<12}{ordemDeServico['data_criacao']:<20}")
+                    print("-" * 70)
 
         elif opcao == '3':
             print("\n-> Relatório de ordem de serviço...")
@@ -131,13 +129,13 @@ def gerenciar_estoque(lista_de_estoque):
             # O 'try/except' tenta executar o código. Se der um erro (ValueError),
             # ele executa o bloco 'except' em vez de quebrar o programa.
             try:
-                quantidade = int(input("Quantidade inicial do material: "))
-                
                 novo_item = {
                     "id": len(lista_de_estoque) + 1,
                     "material": input("Nome do material: "),
-                    "quantidade": quantidade
+                    "quantidade": 0  # Inicialmente, a quantidade é zero.  
                 }
+                quantidade = int(input("Quantidade inicial do material: "))
+                novo_item['quantidade'] = quantidade
                 lista_de_estoque.append(novo_item)
                 print(f"Material '{novo_item['material']}' cadastrado!")
 
@@ -184,8 +182,8 @@ def gerenciar_estoque(lista_de_estoque):
                         nova_quantidade = int(input(f"Quantidade atual de '{material_encontrado['material']}': {material_encontrado['quantidade']}. Digite a nova quantidade: "))
                         # Atualizamos a quantidade do material encontrado.
                         # Isso altera o dicionário dentro da lista, então a mudança é permanente.
-                        material_encontrado['quantidade'] = nova_quantidade
-                        print(f"Quantidade de '{material_encontrado['material']}' atualizada para {nova_quantidade}.")
+                        material_encontrado['quantidade'] = nova_quantidade + material_encontrado['quantidade']
+                        print(f"Quantidade de '{material_encontrado['material']}' atualizada para {material_encontrado['quantidade']}.")
                     except ValueError:
                         print("Erro: A quantidade deve ser um número inteiro. Tente novamente.")
                 else:

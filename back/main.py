@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 
 def apresentar_menu_principal():
@@ -44,7 +45,8 @@ def gerenciar_ordens_de_servico(lista_de_os):
             # Adicionamos o novo dicionário (a nova ordemDeServico) na nossa lista principal de ordemDeServico.
             lista_de_os.append(nova_os)
             ultimo_numero += 1 # Atualizamos o contador do último número.
-            
+            with open('bancoDeDado.json', 'a', encoding='utf-8') as arquivo:
+                arquivo.write(f'{nova_os}\n')
             print(f"Sucesso! ordem de serviço número {nova_os['numero_os']} criada.")
 
         elif opcao == '2':
@@ -55,8 +57,9 @@ def gerenciar_ordens_de_servico(lista_de_os):
             else:
                 # Laço de Repetição (for): passa por cada item (cada ordemDeServico) na lista.
                 for ordemDeServico in lista_de_os:
-                    print(f"{'ID':<5}{'descrição':<20}{'cliente':<15}{'status':<12}{'data de criação':<20}")
-                    print("-" * 70)
+                    if ordemDeServico == lista_de_os[0]:
+                        print(f"{'ID':<5}{'descrição':<20}{'cliente':<15}{'status':<12}{'data de criação':<20}")
+                        print("-" * 70)
                     print(f"{ordemDeServico['numero_os']:<5}{ordemDeServico['descricao']:<20}{ordemDeServico['cliente']:<15}{ordemDeServico['status']:<12}{ordemDeServico['data_criacao']:<20}")
                     print("-" * 70)
 

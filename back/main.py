@@ -11,68 +11,68 @@ def apresentar_menu_principal():
     return opcao
 
 def gerenciar_ordens_de_servico(lista_de_os):
-    # Para saber o número da próxima OS, olhamos o número da última OS na lista.
+    # Para saber o número da próxima ordemDeServico, olhamos o número da última ordemDeServico na lista.
     # Se a lista estiver vazia, começamos com 0.
     if lista_de_os:
         ultimo_numero = lista_de_os[-1]['numero_os']
     else:
         ultimo_numero = 0
 
-    # Laço de Repetição (while): mantém o usuário no menu de OS até ele decidir sair.
+    # Laço de Repetição (while): mantém o usuário no menu de ordemDeServico até ele decidir sair.
     while True:
         print("\n--- Menu de Ordens de Serviço ---")
-        print("1. Criar Nova OS")
-        print("2. Listar Todas as OS")
+        print("1. Criar Nova ordemDeServico")
+        print("2. Listar Todas as ordemDeServico")
         print("3. Ver Relatório Simples")
-        print("4. Concluir OS:")
+        print("4. Gerenciar Status ordemDeServico:")
         print("5. Voltar ao Menu Principal")
         opcao = input("Sua escolha: ")
 
         # Condicional (if/elif/else): decide o que fazer com base na escolha do usuário.
         if opcao == '1':
-            print("\n-> Criando nova OS...")
+            print("\n-> Criando nova ordemDeServico...")
             
             nova_os = {
                 "numero_os": ultimo_numero + 1,
                 "descricao": input("Descrição do serviço: "),
                 "cliente": input("Nome do cliente: "),
-                "status": "Abertta", # Status padrão ao criar
+                "status": "Aberta", # Status padrão ao criar
                 # Usamos o módulo datetime para pegar a data e hora atuais.
                 "data_criacao": datetime.now().strftime('%d/%m/%Y %H:%M') 
             }
             
-            # Adicionamos o novo dicionário (a nova OS) na nossa lista principal de OS.
+            # Adicionamos o novo dicionário (a nova ordemDeServico) na nossa lista principal de ordemDeServico.
             lista_de_os.append(nova_os)
             ultimo_numero += 1 # Atualizamos o contador do último número.
             
-            print(f"Sucesso! OS número {nova_os['numero_os']} criada.")
+            print(f"Sucesso! ordem de serviço número {nova_os['numero_os']} criada.")
 
         elif opcao == '2':
-            print("\n-> Listando todas as OS...")
+            print("\n-> Listando todas as ordem de derviço...")
             # Verifica se a lista está vazia antes de tentar percorrê-la.
             if not lista_de_os:
-                print("Ainda não há Ordens de Serviço cadastradas.")
+                print("Ainda não há ordens de serviço cadastradas.")
             else:
-                # Laço de Repetição (for): passa por cada item (cada OS) na lista.
-                for os in lista_de_os:
+                # Laço de Repetição (for): passa por cada item (cada ordemDeServico) na lista.
+                for ordemDeServico in lista_de_os:
                     print("-" * 20) # Uma linha para separar visualmente
-                    print(f"Número: {os['numero_os']}")
-                    print(f"Descrição: {os['descricao']}")
-                    print(f"Cliente: {os['cliente']}")
-                    print(f"Status: {os['status']}")
-                    print(f"Data de Criação: {os['data_criacao']}")
+                    print(f"Número: {ordemDeServico['numero_os']}")
+                    print(f"Descrição: {ordemDeServico['descricao']}")
+                    print(f"Cliente: {ordemDeServico['cliente']}")
+                    print(f"Status: {ordemDeServico['status']}")
+                    print(f"Data de Criação: {ordemDeServico['data_criacao']}")
 
         elif opcao == '3':
-            print("\n-> Relatório de OS...")
+            print("\n-> Relatório de ordem de serviço...")
             if not lista_de_os:
-                print("Nenhuma OS para gerar relatório.")
+                print("Nenhuma ordem de serviço para gerar relatório.")
             else:
                 # 1. Criamos contadores zerados.
                 concluidas = 0
                 abertas = 0
                 
-                for os in lista_de_os:
-                    if os['status'].lower() == 'concluída':
+                for ordemDeServico in lista_de_os:
+                    if ordemDeServico['status'].lower() == 'concluída':
                         concluidas += 1
                     else:
                         abertas += 1
@@ -81,9 +81,29 @@ def gerenciar_ordens_de_servico(lista_de_os):
                 print(f"Ordens Concluídas: {concluidas}")
                 print(f"Ordens Abertas/Em Andamento: {abertas}")
         elif opcao == '4':
-            os['status'] = input('status os:')        
-            
+            numero_ordem = int(input("Digite o número da ordem de serviço para alterar o status: "))
+            encontrou = False
+            for ordemDeServico in lista_de_os:
+                if ordemDeServico['numero_os'] == numero_ordem:
+                    encontrou = True
+                    print("\n-> Alterando status da ordem de serviço...")
+                    print("1 - Aberta")
+                    print("2 - Concluída")
+                    print("3 - Cancelada")
+                    # print("4 - Voltar")
+                    opcao_status = input("Digite o número da opção para alterar o status: ")
+                    if opcao_status == '1':
+                        ordemDeServico['status'] = 'Aberta'
+                    elif opcao_status == '2':
+                        ordemDeServico['status'] = 'Concluída'
+                    elif opcao_status == '3':
+                        ordemDeServico['status'] = 'Cancelada'
+                    else:
+                        print("Opcao invalida")
+            if encontrou == False:
+                    print("Ordem de serviço não encontrada.")
 
+            
         elif opcao == '5':
             print("Voltando ao menu principal...")
             break
@@ -100,7 +120,8 @@ def gerenciar_estoque(lista_de_estoque):
         print("\n--- Menu de Estoque ---")
         print("1. Cadastrar Novo Material")
         print("2. Ver Estoque")
-        print("3. Voltar ao Menu Principal")
+        print("3. Alterar estoque")
+        print("4. Voltar ao Menu Principal")
         opcao = input("Sua escolha: ")
 
         if opcao == '1':
@@ -137,8 +158,9 @@ def gerenciar_estoque(lista_de_estoque):
         
         elif opcao == '3':
             print("Voltando ao menu principal...")
-            break
         
+        elif opcao == '4':
+            print("oi")
         else:
             print("Opção inválida!")
 

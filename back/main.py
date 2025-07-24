@@ -120,7 +120,8 @@ def gerenciar_estoque(lista_de_estoque):
         print("\n--- Menu de Estoque ---")
         print("1. Cadastrar Novo Material")
         print("2. Ver Estoque")
-        print("3. Voltar ao Menu Principal")
+        print("3. Alterar estoque")
+        print("4. Voltar ao Menu Principal")
         opcao = input("Sua escolha: ")
 
         if opcao == '1':
@@ -157,8 +158,9 @@ def gerenciar_estoque(lista_de_estoque):
         
         elif opcao == '3':
             print("Voltando ao menu principal...")
-            break
         
+        elif opcao == '4':
+            print("oi")
         else:
             print("Opção inválida!")
 

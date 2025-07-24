@@ -11,7 +11,7 @@ def apresentar_menu_principal():
     return opcao
 
 def gerenciar_ordens_de_servico(lista_de_os):
-    # Para saber o número da próxima ordemDeServico, olhamos o número da última ordemDeServico na lista.
+    # Para saber o número da próxima ordem de serviço, olhamos o número da última ordem de serviço na lista.
     # Se a lista estiver vazia, começamos com 0.
     if lista_de_os:
         ultimo_numero = lista_de_os[-1]['numero_os']
@@ -21,10 +21,10 @@ def gerenciar_ordens_de_servico(lista_de_os):
     # Laço de Repetição (while): mantém o usuário no menu de ordemDeServico até ele decidir sair.
     while True:
         print("\n--- Menu de Ordens de Serviço ---")
-        print("1. Criar Nova ordemDeServico")
-        print("2. Listar Todas as ordemDeServico")
+        print("1. Criar Nova Ordem de Serviço")
+        print("2. Listar Todas as Ordens de Serviço")
         print("3. Ver Relatório Simples")
-        print("4. Gerenciar Status ordemDeServico:")
+        print("4. Gerenciar Status da Ordem de Serviço")
         print("5. Voltar ao Menu Principal")
         opcao = input("Sua escolha: ")
 
@@ -55,12 +55,10 @@ def gerenciar_ordens_de_servico(lista_de_os):
             else:
                 # Laço de Repetição (for): passa por cada item (cada ordemDeServico) na lista.
                 for ordemDeServico in lista_de_os:
-                    print("-" * 20) # Uma linha para separar visualmente
-                    print(f"Número: {ordemDeServico['numero_os']}")
-                    print(f"Descrição: {ordemDeServico['descricao']}")
-                    print(f"Cliente: {ordemDeServico['cliente']}")
-                    print(f"Status: {ordemDeServico['status']}")
-                    print(f"Data de Criação: {ordemDeServico['data_criacao']}")
+                    print(f"{'ID':<5}{'descrição':<20}{'cliente':<15}{'status':<12}{'data de criação':<20}")
+                    print("-" * 70)
+                    print(f"{ordemDeServico['numero_os']:<5}{ordemDeServico['descricao']:<20}{ordemDeServico['cliente']:<15}{ordemDeServico['status']:<12}{ordemDeServico['data_criacao']:<20}")
+                    print("-" * 70)
 
         elif opcao == '3':
             print("\n-> Relatório de ordem de serviço...")
@@ -131,13 +129,13 @@ def gerenciar_estoque(lista_de_estoque):
             # O 'try/except' tenta executar o código. Se der um erro (ValueError),
             # ele executa o bloco 'except' em vez de quebrar o programa.
             try:
-                quantidade = int(input("Quantidade inicial do material: "))
-                
                 novo_item = {
                     "id": len(lista_de_estoque) + 1,
                     "material": input("Nome do material: "),
-                    "quantidade": quantidade
+                    "quantidade": 0  # Inicialmente, a quantidade é zero.  
                 }
+                quantidade = int(input("Quantidade inicial do material: "))
+                novo_item['quantidade'] = quantidade
                 lista_de_estoque.append(novo_item)
                 print(f"Material '{novo_item['material']}' cadastrado!")
 
@@ -157,10 +155,43 @@ def gerenciar_estoque(lista_de_estoque):
                     print(f"{item['id']:<5}{item['material']:<20}{item['quantidade']}")
         
         elif opcao == '3':
-            print("Voltando ao menu principal...")
+            # Alterar Estoque
+            # Verifica se a lista de estoque está vazia antes de tentar alterar.
+            print("\n-> Alterar Estoque")
+            if not lista_de_estoque:
+                print("O estoque está vazio. Não há materiais para alterar.")
+            # Se a lista não estiver vazia, pedimos o ID do material a ser alterado.
+            else:
+                # Pedimos o ID do material que o usuário deseja alterar.
+                # Usamos 'int' para garantir que o usuário digite um número.
+                id_material = int(input("Digite o ID do material que deseja alterar: "))
+                material_encontrado = None
+                # Percorremos a lista de estoque para encontrar o material com o ID fornecido.
+                # Se encontrarmos, guardamos o material em 'material_encontrado'.
+                for item in lista_de_estoque:
+                    if item['id'] == id_material:
+                        material_encontrado = item
+                        break
+                # Se encontramos o material, pedimos a nova quantidade.
+                # Se não encontramos, informamos que o material não foi encontrado.
+                if material_encontrado:
+                    # Pedimos a nova quantidade.
+                    # Usamos 'try/except' para garantir que o usuário digite um número inteiro.
+                    # Se o usuário digitar algo que não seja um número, mostramos uma mensagem de erro
+                    try:
+                        nova_quantidade = int(input(f"Quantidade atual de '{material_encontrado['material']}': {material_encontrado['quantidade']}. Digite a nova quantidade: "))
+                        # Atualizamos a quantidade do material encontrado.
+                        # Isso altera o dicionário dentro da lista, então a mudança é permanente.
+                        material_encontrado['quantidade'] = nova_quantidade + material_encontrado['quantidade']
+                        print(f"Quantidade de '{material_encontrado['material']}' atualizada para {material_encontrado['quantidade']}.")
+                    except ValueError:
+                        print("Erro: A quantidade deve ser um número inteiro. Tente novamente.")
+                else:
+                    print("Material não encontrado.")
         
         elif opcao == '4':
-            print("oi")
+            print("Voltando ao menu principal...")
+            break
         else:
             print("Opção inválida!")
 
@@ -170,7 +201,8 @@ def gerenciar_clientes(lista_de_clientes):
         print("\n--- Menu de Clientes ---")
         print("1. Cadastrar Novo Cliente")
         print("2. Listar Clientes")
-        print("3. Voltar ao Menu Principal")
+        print("3. Remover Cliente")
+        print("4. Voltar ao Menu Principal")
         opcao = input("Sua escolha: ")
 
         if opcao == '1':
@@ -195,9 +227,33 @@ def gerenciar_clientes(lista_de_clientes):
                     print(f"Telefone: {cliente['telefone']}")
 
         elif opcao == '3':
+            # Remover Cliente
+            print("\n-> Remover Cliente")
+            # Verifica se a lista de clientes está vazia antes de tentar remover.
+            if not lista_de_clientes:
+                print("Nenhum cliente cadastrado.")
+            # Se a lista não estiver vazia, pedimos o ID do cliente a ser removido.
+            else:
+                id_cliente = int(input("Digite o ID do cliente que deseja remover: "))
+                cliente_removido = None
+                # Percorremos a lista de clientes para encontrar o cliente com o ID fornecido.
+                # Se encontrarmos, removemos da lista.
+                for cliente in lista_de_clientes:
+                    if cliente['id'] == id_cliente:
+                        cliente_removido = cliente
+                        break
+                # Se encontramos o cliente, removemos e informamos ao usuário.
+                # Se não encontramos, informamos que o cliente não foi encontrado.
+                if cliente_removido:
+                    lista_de_clientes.remove(cliente_removido)
+                    print(f"Cliente '{cliente_removido['nome']}' removido com sucesso!")
+                # Se não encontramos o cliente, informamos ao usuário.
+                else:
+                    print("Cliente não encontrado.")
+
+        elif opcao == '4':
             print("Voltando ao menu principal...")
             break
-        
         else:
             print("Opção inválida!")
 

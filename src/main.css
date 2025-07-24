@@ -210,3 +210,73 @@ img .img2-descricao {
     font-size: 16px;
     line-height: 1.5;
 }
+
+#depoimentos {
+    padding: 80px 20px;
+    background-color: #264653;
+    text-align: center;
+    color: #fff;
+}
+
+#depoimentos h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+#depoimentos h2 strong {
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.container-depoimento {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+
+}
+
+.depoimento-card {
+    background-color: #172c34;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 300px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.depoimento-card:hover {
+    transform: translateY(-6px);
+}
+
+.depoimento-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border: 3px solid #ff9f1c;
+}
+
+.depoimento-card .mensagem {
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.depoimento-card h4 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.depoimento-card span {
+    font-size: 14px;
+    color: #ffa25b;
+}
+
+
+

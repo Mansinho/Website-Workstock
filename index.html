@@ -12,6 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" hhref="/img/W.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@700&display=swap"
         rel="stylesheet" />
+    <script src="https://unpkg.com/scrollreveal"></script>
     <title>WorkStock</title>
 </head>
 
@@ -85,7 +86,8 @@
                 </div>
 
                 <div class="descricao-imagens">
-                    <img src="/img/img section descricao1.png" class="img1_descricao"alt="Controle inteligente da obra" />
+                    <img src="/img/img section descricao1.png" class="img1_descricao"
+                        alt="Controle inteligente da obra" />
                     <img src="/img/img section descricao2.png" class="img2_descricao" alt="Planejamento e agilidade" />
                 </div>
             </div>
@@ -96,17 +98,17 @@
             <h2>Benefícios de usar o WorkStock</h2>
             <div class="beneficios-lista">
                 <div class="beneficio-item">
-                    <img src="/img/icone-agilidade.png" alt="Ícone agilidade">
+                    <img src="/img/agilidade.png" alt="Ícone agilidade">
                     <h3>Agilidade</h3>
                     <p>Reduza em até 40% o tempo de obra e manutenção.</p>
                 </div>
                 <div class="beneficio-item">
-                    <img src="/img/icone-gestao.png" alt="Ícone gestão">
+                    <img src="/img/gestao-inteligente.png" alt="Ícone gestão">
                     <h3>Gestão Inteligente</h3>
                     <p>Acompanhe orçamentos, materiais e cronogramas em tempo real.</p>
                 </div>
                 <div class="beneficio-item">
-                    <img src="/img/icone-relatorio.png" alt="Ícone relatório">
+                    <img src="/img/relatorio.png" alt="Ícone relatório">
                     <h3>Relatórios prontos</h3>
                     <p>Geração automática de relatórios para tomada de decisão.</p>
                 </div>
@@ -125,7 +127,17 @@
         </div>
     </footer>
 
-
+    <script>
+        // Configuração do ScrollReveal para a section intro
+        ScrollReveal().reveal('#intro', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: false
+        });
+    </script>
     <!-- Script para ativar o menu hambúrguer -->
     <script>
         const menuToggle = document.querySelector('.menu-toggle');

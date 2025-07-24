@@ -120,21 +120,25 @@
     flex: 1 2 30%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
     width: 200px;
     height: auto;
     align-items: center;
 }
 
 .descricao-imagens img {
-    max-width: 180px;
+    width: 180px;
     height: auto;
     border-radius: 12px;
+    transition: transform 0.3s ease;
 }
 
-img .img1-descricao {
-    flex-direction: 1 ;
-    padding-left: 50px;
+.descricao-imagens img:nth-child(1) {
+    transform: translateX(-30px);
+}
+
+.descricao-imagens img:nth-child(2) {
+    transform: translateX(40px);
 }
 
 img .img2-descricao {
@@ -191,7 +195,8 @@ img .img2-descricao {
 }
 
 .beneficio-item img {
-    width: 64px;
+    width: 100px;
+    height: auto;
     margin-bottom: 16px;
 }
 

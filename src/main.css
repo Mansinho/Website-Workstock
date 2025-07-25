@@ -146,24 +146,10 @@ img .img2-descricao {
     padding-left: 50px;
 }
 
-#intro.sumir {
-    opacity: 0;
-    transform: translateY(-50px);
-    transition: all 0.6s ease;
-    pointer-events: none;
-}
-#descricao {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.6s ease;
-}
-#descricao.ativo {
-    opacity: 1;
-    transform: translateY(0);
-}
+
 
 #beneficios {
-    background-color: #fff;
+    background-color: #f6f6f6;
     padding: 60px 80px;
     text-align: center;
     color: #264653;

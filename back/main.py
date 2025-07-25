@@ -1,6 +1,16 @@
 import json
 from datetime import datetime
+def carregar_dados():
+    try:
+        with open('bancoDeDados.json', 'r', encoding='utf-8') as arq:
+            return json.load(arq)
+    except FileNotFoundError:
+        return []
 
+def salvar_dados(lista_de_os):
+    with open('bancoDeDados.json', 'w', encoding='utf-8') as arq:
+        json.dump(lista_de_os, arq, indent=4)
+        
 def apresentar_menu_principal():
     print("\n========= MENU PRINCIPAL =========")
     print("1. Ordens de Serviço")
@@ -45,13 +55,13 @@ def gerenciar_ordens_de_servico(lista_de_os):
             # Adicionamos o novo dicionário (a nova ordemDeServico) na nossa lista principal de ordemDeServico.
             lista_de_os.append(nova_os)
             ultimo_numero += 1 # Atualizamos o contador do último número.
-            with open('bancoDeDado.json', 'a', encoding='utf-8') as arquivo:
-                arquivo.write(f'{nova_os}\n')
+            salvar_dados(lista_de_os)
             print(f"Sucesso! ordem de serviço número {nova_os['numero_os']} criada.")
 
         elif opcao == '2':
             print("\n-> Listando todas as ordem de derviço...")
             # Verifica se a lista está vazia antes de tentar percorrê-la.
+            lista_de_os = carregar_dados()
             if not lista_de_os:
                 print("Ainda não há ordens de serviço cadastradas.")
             else:
@@ -65,6 +75,7 @@ def gerenciar_ordens_de_servico(lista_de_os):
 
         elif opcao == '3':
             print("\n-> Relatório de ordem de serviço...")
+            lista_de_os = carregar_dados()
             if not lista_de_os:
                 print("Nenhuma ordem de serviço para gerar relatório.")
             else:
@@ -82,6 +93,7 @@ def gerenciar_ordens_de_servico(lista_de_os):
                 print(f"Ordens Concluídas: {concluidas}")
                 print(f"Ordens Abertas/Em Andamento: {abertas}")
         elif opcao == '4':
+            lista_de_os = carregar_dados()
             numero_ordem = int(input("Digite o número da ordem de serviço para alterar o status: "))
             encontrou = False
             for ordemDeServico in lista_de_os:

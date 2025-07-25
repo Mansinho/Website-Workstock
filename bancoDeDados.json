@@ -1,0 +1,17 @@
+[
+    {
+        "numero_os": 1,
+        "descricao": "parede",
+        "cliente": "joao",
+        "status": "Aberta",
+        "data_criacao": "24/07/2025 20:37"
+    },
+    {
+        "numero_os": 2,
+        "descricao": "Teto",
+        "cliente": "Nonato",
+        "status": "Aberta",
+        "data_criacao": "24/07/2025 20:47"
+    }
+
+]

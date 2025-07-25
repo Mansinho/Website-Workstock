@@ -1,3 +1,0 @@
-{'numero_os': 1, 'descricao': 'parede', 'cliente': 'luis', 'status': 'Aberta', 'data_criacao': '24/07/2025 19:26'}
-
-

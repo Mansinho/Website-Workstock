@@ -93,7 +93,6 @@ def gerenciar_ordens_de_servico(lista_de_os):
                 print(f"Ordens Concluídas: {concluidas}")
                 print(f"Ordens Abertas/Em Andamento: {abertas}")
         elif opcao == '4':
-            lista_de_os = carregar_dados()
             numero_ordem = int(input("Digite o número da ordem de serviço para alterar o status: "))
             encontrou = False
             for ordemDeServico in lista_de_os:

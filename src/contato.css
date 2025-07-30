@@ -1,12 +1,7 @@
-body {
-    background-image: url(/img/background\ section\ intro.jpg);
-}
-
 main {
     padding: 60px 20px;
-    max-width: 750px;
+    max-width: 600px; /* Adjust max-width for the form */
     margin: 0 auto;
-  
 }
 
 h1 {
@@ -24,7 +19,7 @@ form {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(231, 111, 81, 0.629);
+    box-shadow: 0 4px 12px rgba(73, 238, 2, 0.21);
 }
 
 label {
@@ -32,13 +27,14 @@ label {
     color: #333;
 }
 
-input, textarea {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    resize: vertical;
 }
 
 button {
@@ -53,12 +49,12 @@ button {
 }
 
 button:hover {
-    background-color: #1c3694;
+    background-color: rgb(18, 56, 2);
 }
 
 footer {
     text-align: center;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     background-color: #264653;
     color: #f0ead8;
 }

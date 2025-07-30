@@ -1,0 +1,16 @@
+[
+    {
+        "numero_os": 1,
+        "descricao": "pintura",
+        "cliente": "everton",
+        "status": "Conclu\u00edda",
+        "data_criacao": "29/07/2025 21:01"
+    },
+    {
+        "numero_os": 2,
+        "descricao": "parede",
+        "cliente": "junior",
+        "status": "Aberta",
+        "data_criacao": "29/07/2025 21:02"
+    }
+]

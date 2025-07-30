@@ -1,0 +1,16 @@
+[
+    {
+        "numero_os": 1,
+        "descricao": "telhado",
+        "cliente": "jo\u00e3o",
+        "status": "Conclu\u00edda",
+        "data_criacao": "30/07/2025 19:02"
+    },
+    {
+        "numero_os": 2,
+        "descricao": "parede",
+        "cliente": "levi",
+        "status": "Aberta",
+        "data_criacao": "30/07/2025 19:03"
+    }
+]

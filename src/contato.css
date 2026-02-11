@@ -104,19 +104,19 @@ body {
     transform: scale(1.02);
   }
   
-  /* Rodapé */
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 15px 0;
-    background: rgba(0, 0, 0, 0.5);
-    font-size: 14px;
-    color: #00fff2;
-    border-top: 1px solid rgba(0, 255, 242, 0.1);
-  }
+ /* Rodapé */
+ footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  color: #00fff2;
+  border-top: 1px solid rgba(0, 255, 242, 0.1);
+}
   
   /* Ajustes para Telas Pequenas */
   @media (max-width: 600px) {

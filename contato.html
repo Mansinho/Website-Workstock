@@ -1,74 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contato | WorkStock</title>
-    <link rel="stylesheet" href="/src/header.css" />
-    <link rel="stylesheet" href="/src/main.css" />
-    <link rel="stylesheet" href="/src/contato.css" />
+    <link rel="stylesheet" href="/src/css/header.css" />
+    <link rel="stylesheet" href="/src/css/main.css" />
+    <link rel="stylesheet" href="/src/css/contato.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="/img/W.png" />
-    <link rel="icon" type="image/png" sizes="16x16" hhref="/img/W.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@700&display=swap"
-        rel="stylesheet" />
-
-</head>
-<body>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/W.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="logo-area">
-                <a href="/index.html">
-                    <img src="/img/Logo WorkStock PNG_2.png" alt="Logo WorkStock" class="logo-icon" />
-                </a>
-            </div>
-
-            <button class="menu-toggle" aria-label="Abrir menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-
-            <nav class="navigation" aria-label="Navegação principal">
-                <a href="/dashboard.html">Dashboard</a>
-                <a href="/projetos.html">Projetos</a>
-                <a href="/contato.html">Contatos</a>
-            </nav>
-
-            <div class="conta-area">
-                <a href="/conta.html">
-                    <img src="/img/char-conta PNG.png" alt="Ícone da Conta" class="conta-icon" />Minha conta
-                </a>
-            </div>
+      <div class="container">
+        <div class="logo-area">
+          <a href="/index.html">
+            <img
+              src="/img/Logo WorkStock PNG_2.png"
+              alt="Logo WorkStock"
+              class="logo-icon"
+            />
+          </a>
         </div>
+
+        <button class="menu-toggle" aria-label="Abrir menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+
+        <nav class="navigation" aria-label="Navegação principal">
+          <a href="/dashboard.html">Dashboard</a>
+          <a href="/projetos.html">Projetos</a>
+          <a href="/contato.html">Contato</a>
+        </nav>
+
+        <div class="conta-area">
+          <a href="/conta.html">
+            <img
+              src="/img/char-conta PNG.png"
+              alt="Ícone da Conta"
+              class="conta-icon"
+            />Minha conta
+          </a>
+        </div>
+      </div>
     </header>
 
     <main>
-        <h1>Fale Conosco</h1>
-        <form action="#" method="post">
+      <h1>Fale Conosco</h1>
+
+      <div class="contato-wrapper">
+        <div class="contato-dados">
+          <form action="#" method="post">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu nome completo"
+              required
+            />
 
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="exemplo@dominio.com"
+              required
+            />
+
+            <label for="telefone">Telefone:</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              placeholder="(00) 00000-0000"
+              pattern="\(\d{2}\) \d{5}-\d{4}"
+            />
 
             <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows="4"
+              placeholder="Como podemos ajudar?"
+              required
+            ></textarea>
 
-            <button type="submit">Enviar</button>
-        </form>
+            <button type="submit">Enviar Mensagem</button>
+          </form>
+        </div>
+      </div>
     </main>
 
-    <footer>
-        &copy; 2025 WorkStock. Todos os direitos reservados.
-    </footer>
+    <footer>&copy; 2025 WorkStock. Todos os direitos reservados.</footer>
 
     <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navigation = document.querySelector('.navigation');
-        menuToggle.addEventListener('click', () => {
-            navigation.classList.toggle('active');
-            menuToggle.classList.toggle('open');
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navigation = document.querySelector(".navigation");
+      menuToggle.addEventListener("click", () => {
+        navigation.classList.toggle("active");
+        menuToggle.classList.toggle("open");
+      });
+
+      // Máscara automática para o telefone
+      document
+        .getElementById("telefone")
+        .addEventListener("input", function (e) {
+          let x = e.target.value
+            .replace(/\D/g, "")
+            .match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+          e.target.value = !x[2]
+            ? x[1]
+            : "(" + x[1] + ") " + x[2] + (x[3] ? "-" + x[3] : "");
         });
     </script>
-</body>
+  </body>
 </html>

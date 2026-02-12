@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Entrar | WorkStock</title>
+
     <link rel="stylesheet" href="/src/header.css" />
     <link rel="stylesheet" href="/src/main.css" />
-    <link rel="stylesheet" href="src/keyframes.css" />
-    <link rel="stylesheet" href="src/entra.css" />
+    <link rel="stylesheet" href="/src/keyframes.css" />
+    <link rel="stylesheet" href="/src/entra.css" />
+
     <link rel="icon" type="image/png" sizes="32x32" href="/img/W.png" />
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
+
     <header>
         <div class="container">
             <div class="logo-area">
@@ -41,22 +46,72 @@
         </div>
     </header>
 
-    <main>
-        <h1>Entrar na WorkStock</h1>
-        <form action="#" method="post">
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
+    <!-- WRAPPER PRINCIPAL -->
+    <section class="login-wrapper">
 
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
+        <div class="login-container">
 
-            <button type="submit">Entrar</button>
+            <!-- LADO ESQUERDO - ILUSTRAÇÃO -->
+            <div class="login-illustration">
+                <img src="/img/ilustração login.png" alt="Ilustração WorkStock">
+            </div>
 
-            <p class="form-link">
-                Ainda não tem uma conta? <a href="/conta.html">Criar conta</a>
-            </p>
-        </form>
-    </main>
+            <!-- LADO DIREITO - FORMULÁRIO -->
+            <div class="login-form-area">
+
+                <div class="login-header">
+                    <h1>Bem-vindo de volta</h1>
+                    <p>Gerencie seus projetos com eficiência e organização.</p>
+                </div>
+
+                <form action="#" method="post" novalidate>
+
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="senha">Senha</label>
+                        <input 
+                            type="password" 
+                            id="senha" 
+                            name="senha"
+                            placeholder="Digite sua senha"
+                            required
+                        >
+                    </div>
+
+                    <div class="login-options">
+                        <label class="remember">
+                            <input type="checkbox">
+                            Lembrar de mim
+                        </label>
+                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        Entrar
+                    </button>
+
+                    <p class="form-link">
+                        Ainda não tem uma conta?
+                        <a href="/conta.html">Criar conta</a>
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
 
     <footer>
         &copy; 2025 WorkStock. Todos os direitos reservados.
@@ -70,5 +125,6 @@
             menuToggle.classList.toggle('open');
         });
     </script>
+
 </body>
 </html>
